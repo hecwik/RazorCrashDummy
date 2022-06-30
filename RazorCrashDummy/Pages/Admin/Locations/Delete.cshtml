@@ -1,0 +1,30 @@
+﻿
+
+@page
+@model RazorCrashDummy.Pages.Admin.Locations.DeleteModel
+
+<form method="post">
+    <input hidden asp-for="Location.Id" />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+        <h2 class="text-primary pl-3">Delete Location</h2>
+        <hr/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Location.Id"></label>
+        <input asp-for="Location.Id" disabled class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Location.Name" ></label>
+        <input asp-for="Location.Name" disabled class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-danger" style="width:150px;">Delete</button>
+    <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to list</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

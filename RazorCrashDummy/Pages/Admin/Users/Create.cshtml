@@ -1,0 +1,47 @@
+﻿
+
+@page
+@model RazorCrashDummy.Pages.Admin.Users.CreateModel
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+        <h2 class="text-primary pl-3">Create User</h2>
+        <hr/>
+    </div>
+    <div asp-validation-summary="All"></div>
+    <div class="mb-2">
+        <label asp-for="User.Name" ></label>
+        <input asp-for="User.Name" class="form-control" />
+        <span asp-validation-for="User.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.LastName" ></label>
+        <input asp-for="User.LastName" class="form-control" />
+        <span asp-validation-for="User.LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.Username" ></label>
+        <input asp-for="User.Username" class="form-control" />
+        <span asp-validation-for="User.Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.Password" ></label>
+        <input asp-for="User.Password" class="form-control" />
+        <span asp-validation-for="User.Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="User.Active" ></label>
+        <input asp-for="User.Active" type="checkbox" name="active" checked="true" />
+        <span asp-validation-for="User.Active" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+    <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to list</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

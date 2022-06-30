@@ -1,0 +1,51 @@
+﻿
+
+@page
+@model RazorCrashDummy.Pages.Admin.Shifts.UpsertModel
+
+<form method="post" enctype="multipart/form-data">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">
+                @(Model.Shift.Id!=0 ? "Update" : "Create") Shift
+            </h2>
+            <hr/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Shift.UserId" ></label>
+        <select asp-for="Shift.UserId" asp-items="Model.UserList" class="form-select">
+            <option disabled selected>-Select User-</option>
+        </select>
+        <span asp-validation-for="Shift.UserId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Shift.LocationId" ></label>
+        <select asp-for="Shift.LocationId" asp-items="Model.LocationList" class="form-select">
+            <option disabled selected>-Select Location-</option>
+        </select>
+        <span asp-validation-for="Shift.LocationId" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Shift.StartTime" ></label>
+        <input asp-for="Shift.StartTime" class="form-control" value="@DateTime.Now.ToString()" />
+        <span asp-validation-for="Shift.StartTime" class="text-danger" value=""></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Shift.EndTime" ></label>
+        <input asp-for="Shift.EndTime" class="form-control" value="@DateTime.Now.ToString()" />
+        <span asp-validation-for="Shift.EndTime" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Shift.Added" ></label>
+        <input asp-for="Shift.Added" disabled class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:150px;">Create</button>
+    <a asp-page="Index" class="btn btn-secondary" style="width:150px;">Back to list</a>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}
